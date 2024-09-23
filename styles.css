@@ -1,0 +1,105 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('background.jpg'); /* 修改这一行，假设背景图片在111文件夹内 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Arial', sans-serif;
+}
+
+/* 添加或修改以下样式以确保轮播图正确显示 */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    margin: 5vh auto;
+    /* 移除 overflow: hidden; */
+}
+
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden; /* 将 overflow: hidden 移到这里 */
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+/* 添加或修改以下箭头样式 */
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;  /* 将宽度缩小为原来的 2/3 */
+    height: 120px; /* 将高度缩小为原来的 2/3 */
+    background: rgba(255, 255, 255, 0.5); /* 半透明白色背景 */
+    color: #333; /* 深色箭头 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px; /* 将字体大小缩小为原来的 2/3 */
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background 0.3s, transform 0.3s;
+    border-radius: 50%; /* 圆形 */
+    z-index: 10; /* 确保箭头在图片上层 */
+}
+
+.arrow:hover {
+    background: rgba(255, 255, 255, 0.8); /* 悬停时更不透明 */
+    transform: translateY(-50%) scale(1.05); /* 悬停时略微放大 */
+}
+
+.left-arrow {
+    left: -60px; /* 调整位置 */
+}
+
+.right-arrow {
+    right: -60px; /* 调整位置 */
+}
+
+/* 确保轮播容器有相对定位 */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    height: 90vh;
+    margin: 5vh auto;
+    /* 移除 overflow: hidden; */
+}
+
+/* ... 其余样式保持不变 ... */
+
+/* 在文件末尾添加以下样式 */
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
